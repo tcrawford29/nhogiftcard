@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- [y] hybris Platform Copyright (c) 2018 SAP SE or an SAP affiliate company. 
+	All rights reserved. This software is the confidential and proprietary information 
+	of SAP ("Confidential Information"). You shall not disclose such Confidential 
+	Information and shall use it only in accordance with the terms of the license 
+	agreement you entered into with SAP. -->
+<!-- ATTENTION: This is just an example file. You have to edit it according 
+	to your needs. -->
+
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="items.xsd">
+
+
+	<enumtypes>
+		<enumtype code="GiftCardTypeEnum" autocreate="true"
+			generate="true" dynamic="false">
+			<value code="giftcard25" />
+			<value code="giftcard50" />
+			<value code="giftcard75" />
+			<value code="giftcard100" />
+		</enumtype>
+
+
+	</enumtypes>
+
+	<itemtypes>
+
+		<itemtype code="GiftCardVariantProduct"
+			extends="VariantProduct" autocreate="true" generate="true">
+			<description>Gift Card variant type contains additional attributes describing variant value.</description>
+
+			<attributes>
+
+				<attribute qualifier="giftCardAmount"
+					type="GiftCardTypeEnum">
+					<description>type of concert (indoors or open air)</description>
+					<persistence type="property" />
+				</attribute>
+			</attributes>
+		</itemtype>
+
+
+
+
+		<itemtype code="GiftCard" extends="GenericItem"
+			autocreate="true" generate="true">
+			<description>Existing gift card with 3 attributes</description>
+			<deployment table="GiftCard" typecode="30005" />
+
+			<attributes>
+				<attribute qualifier="balance" type="java.lang.double">
+					<description>The balance of the giftcard.</description>
+					<persistence type="property" />
+				</attribute>
+
+				<attribute qualifier="giftcardnum" type="java.lang.string">
+					<description>The 10 digit number of the giftcard.</description>
+					<persistence type="property" />
+				</attribute>
+
+				<attribute qualifier="giftcardpin" type="java.lang.string">
+					<description>The 6 digit pin of the giftcard.</description>
+					<persistence type="property" />
+				</attribute>
+
+			</attributes>
+		</itemtype>
+	</itemtypes>
+
+
+</items>
